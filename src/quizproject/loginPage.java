@@ -129,6 +129,7 @@ public class loginPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill all the fields");
         } else {
             try {
+               //test
                 Connection con = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/quiz", "root", "admin");
                 Statement stmt = (Statement) con.createStatement();
