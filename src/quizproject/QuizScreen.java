@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class QuizScreen extends javax.swing.JFrame {
 
-    String curUser;
+    String curUser, qType;
     String[] question = new String[5];
     String[][] options = new String[6][6];
     int index = 0, correct = 0, curUserId;
@@ -23,10 +23,11 @@ public class QuizScreen extends javax.swing.JFrame {
     /**
      * Creates new form QuizScreen
      */
-    QuizScreen(String username, int id) {
+    QuizScreen(String username, int id, String type) {
         initComponents();
         curUserId = id;
         curUser = username;
+        qType = type;
     }
 
     public void getSelectedOption(JCheckBox chk) {
@@ -205,7 +206,14 @@ public class QuizScreen extends javax.swing.JFrame {
                 Connection con = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/quiz", "root", "admin");
                 Statement stmt = (Statement) con.createStatement();
-                String query = "select * from sports_quiz_bank where index_no ='" + questionNumber + "';";
+                String query = null;
+                if (qType.equals("sports")) {
+                    query = "select * from sports_quiz_bank where index_no ='" + questionNumber + "';";
+                }
+                else if(qType.equals("science")){
+                    query = "select * from science_quiz_bank where index_no ='" + questionNumber + "';";
+                }
+
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     question[i] = rs.getString("question");
@@ -333,7 +341,7 @@ public class QuizScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuizScreen("test", 0).setVisible(true);
+                new QuizScreen("test", 0, "test").setVisible(true);
             }
         });
     }
