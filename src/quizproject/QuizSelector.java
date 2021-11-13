@@ -38,6 +38,7 @@ public class QuizSelector extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Select Quiz Topics");
 
         jButton1.setText("General Knowledge");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

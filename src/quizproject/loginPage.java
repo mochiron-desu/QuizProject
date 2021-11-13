@@ -40,6 +40,7 @@ public class loginPage extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
 
         jLabel1.setText("Username");
 
