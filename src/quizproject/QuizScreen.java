@@ -214,6 +214,9 @@ public class QuizScreen extends javax.swing.JFrame {
                 else if(qType.equals("science")){
                     query = "select * from science_quiz_bank where index_no ='" + questionNumber + "';";
                 }
+                else if(qType.equals("gk")){
+                    query = "select * from gk_quiz_bank where index_no ='" + questionNumber + "';";
+                }
 
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
