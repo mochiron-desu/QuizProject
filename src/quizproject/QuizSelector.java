@@ -151,7 +151,7 @@ public class QuizSelector extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuizSelector("test", 0).setVisible(true);
+                new QuizSelector("test", 3).setVisible(true);
             }
         });
     }

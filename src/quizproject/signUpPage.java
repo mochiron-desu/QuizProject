@@ -157,7 +157,7 @@ public class signUpPage extends javax.swing.JFrame {
         String confirm_password = String.valueOf(confirm_passwordChar);
 
         if (name.isEmpty() || username.isEmpty() || password.isEmpty() || confirm_password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter the fields");
+            JOptionPane.showMessageDialog(this, "Please enter all the fields");
         } else if (!password.equals(confirm_password)) {
             JOptionPane.showMessageDialog(this, "Password do not match");
             jPasswordField1.setText("");
