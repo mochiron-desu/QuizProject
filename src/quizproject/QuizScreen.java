@@ -19,6 +19,7 @@ public class QuizScreen extends javax.swing.JFrame {
     String[] question = new String[5];
     String[][] options = new String[6][6];
     int index = 0, correct = 0, curUserId;
+    String selectedOption = null;
 
     /**
      * Creates new form QuizScreen
@@ -30,13 +31,12 @@ public class QuizScreen extends javax.swing.JFrame {
         qType = type;
     }
 
-    public void getSelectedOption(JCheckBox chk) {
-        if (chk.getText().equals(options[index][4])) {
-            correct++;
-        }
-        index++;
-    }
-
+//    public void getSelectedOption(JCheckBox chk) {
+//        if (chk.getText().equals(options[index][4])) {
+//            correct++;
+//        }
+//        index++;
+//    }
     /**
      * This method is called from within the constructor to initialize
      * the form. WARNING: Do NOT modify this code. The content of this
@@ -191,8 +191,7 @@ public class QuizScreen extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
 
         String database = null;
-        database = "sports_quiz_bank";
-        System.out.println(database);
+        database = "";
 
         A.setEnabled(false);
         B.setEnabled(false);
@@ -210,11 +209,9 @@ public class QuizScreen extends javax.swing.JFrame {
                 String query = null;
                 if (qType.equals("sports")) {
                     query = "select * from sports_quiz_bank where index_no ='" + questionNumber + "';";
-                }
-                else if(qType.equals("science")){
+                } else if (qType.equals("science")) {
                     query = "select * from science_quiz_bank where index_no ='" + questionNumber + "';";
-                }
-                else if(qType.equals("gk")){
+                } else if (qType.equals("gk")) {
                     query = "select * from gk_quiz_bank where index_no ='" + questionNumber + "';";
                 }
 
@@ -268,7 +265,7 @@ public class QuizScreen extends javax.swing.JFrame {
                         "jdbc:mysql://localhost:3306/quiz", "root", "admin");
                 Statement stmt = (Statement) con.createStatement();
                 String query = "insert into logs values('" + curUserId + "','" + correct + "','" + ((correct * 10) / question.length) + "',curdate());";
-                stmt.executeUpdate(query);
+                    stmt.executeUpdate(query);
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -287,12 +284,22 @@ public class QuizScreen extends javax.swing.JFrame {
             jButton1.setText("Done");
 
         } else {
-            jTextArea1.setText(question[index]);
-            A.setText(options[index][0]);
-            B.setText(options[index][1]);
-            C.setText(options[index][2]);
-            D.setText(options[index][3]);
+            if (index < 5) {
+                if (selectedOption == null) {
+                    ;
+                } else if (selectedOption.equals(options[index][4])) {
+                    correct++;
+                    index++;
+                } else {
+                    index++;
+                }
 
+                jTextArea1.setText(question[index]);
+                A.setText(options[index][0]);
+                B.setText(options[index][1]);
+                C.setText(options[index][2]);
+                D.setText(options[index][3]);
+            }
             if (index == question.length - 1) {
                 jButton1.setText("Check your score now");
             }
@@ -300,19 +307,23 @@ public class QuizScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
-        getSelectedOption(A);
+        //getSelectedOption(A);
+        selectedOption = A.getText();
     }//GEN-LAST:event_AActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
-        getSelectedOption(B);
+        // getSelectedOption(B);
+        selectedOption = B.getText();
     }//GEN-LAST:event_BActionPerformed
 
     private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
-        getSelectedOption(C);
+        //  getSelectedOption(C);
+        selectedOption = C.getText();
     }//GEN-LAST:event_CActionPerformed
 
     private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
-        getSelectedOption(D);
+        // getSelectedOption(D);
+        selectedOption = D.getText();
     }//GEN-LAST:event_DActionPerformed
 
     /**
@@ -345,7 +356,7 @@ public class QuizScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuizScreen("test", 0, "test").setVisible(true);
+                new QuizScreen("desu", 3, "sports").setVisible(true);
             }
         });
     }
