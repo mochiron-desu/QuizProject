@@ -16,13 +16,10 @@ import javax.swing.JOptionPane;
  */
 public class loginPage extends javax.swing.JFrame {
 
-    String username;
-
     /**
      * Creates new form loginPage
      */
-    public loginPage(String usernameget) {
-        username = usernameget;
+    public loginPage() {
         initComponents();
     }
 
@@ -44,11 +41,6 @@ public class loginPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         jLabel1.setText("Username");
 
@@ -91,9 +83,9 @@ public class loginPage extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                     .addComponent(jPasswordField1))
-                .addGap(51, 51, 51))
+                .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,7 +121,7 @@ public class loginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        username = jTextField1.getText();
+        String username = jTextField1.getText();
         int uid;
 
         char[] passwordChar = jPasswordField1.getPassword();
@@ -138,7 +130,7 @@ public class loginPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill all the fields");
         } else {
             try {
-                //test
+               //test
                 Connection con = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/quiz", "root", "admin");
                 Statement stmt = (Statement) con.createStatement();
@@ -174,14 +166,6 @@ public class loginPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        if (username == null) {
-
-        } else {
-            jTextField1.setText(username);
-        }
-    }//GEN-LAST:event_formWindowOpened
-
     /**
      * @param args the command line arguments
      */
@@ -212,7 +196,7 @@ public class loginPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginPage(null).setVisible(true);
+                new loginPage().setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
  */
 package quizproject;
 
+import java.sql.Statement;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -170,7 +171,7 @@ public class signUpPage extends javax.swing.JFrame {
                 stmt.executeUpdate(query);
                 JOptionPane.showMessageDialog(this, "Successful Sign Up");
                 this.dispose();
-                new loginPage(username).setVisible(true);
+                new loginPage().setVisible(true);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
                 System.out.println(ex.getMessage());
@@ -185,7 +186,7 @@ public class signUpPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-        new loginPage(null).setVisible(true);
+        new loginPage().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
