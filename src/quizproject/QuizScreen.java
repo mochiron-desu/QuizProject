@@ -189,10 +189,6 @@ public class QuizScreen extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jTextArea1.setEditable(false);
-
-        String database = null;
-        database = "";
-
         A.setEnabled(false);
         B.setEnabled(false);
         C.setEnabled(false);
@@ -230,7 +226,6 @@ public class QuizScreen extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println(question.length);
     }//GEN-LAST:event_formWindowOpened
 
     private void AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AMouseClicked
@@ -287,10 +282,10 @@ public class QuizScreen extends javax.swing.JFrame {
             if (index < 5) {
                 if (selectedOption == null) {
                     ;
-                } else if (selectedOption.equals(options[index][4])) {
+                } else if (selectedOption.equals(options[index][4])) { //if the answer is correct
                     correct++;
                     index++;
-                } else {
+                } else { //if the answer is wrong
                     index++;
                 }
 

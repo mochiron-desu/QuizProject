@@ -237,7 +237,7 @@ public class stats extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new stats(4).setVisible(true);
+                new stats(15).setVisible(true);
             }
         });
     }

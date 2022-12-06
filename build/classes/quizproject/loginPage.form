@@ -9,6 +9,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -32,10 +35,10 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextField1" pref="80" max="32767" attributes="0"/>
+                  <Component id="jTextField1" pref="115" max="32767" attributes="0"/>
                   <Component id="jPasswordField1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
